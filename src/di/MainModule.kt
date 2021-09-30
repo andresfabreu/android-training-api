@@ -1,9 +1,9 @@
-package com.moobie.di
+package com.paringapi.di
 
-import com.moobie.controller.CarController
-import com.moobie.database.dbConnect
-import com.moobie.service.CarService
-import com.moobie.service.CarServiceImpl
+import com.paringapi.controller.StoreController
+import com.paringapi.database.dbConnect
+import com.paringapi.service.StoreService
+import com.paringapi.service.StoreServiceImpl
 import com.google.inject.AbstractModule
 import io.ktor.application.Application
 import io.ktor.application.install
@@ -23,8 +23,8 @@ class MainModule(private val application: Application) : AbstractModule() {
 
         dbConnect()
 
-        bind(CarController::class.java).asEagerSingleton()
-        bind(CarService::class.java).to(CarServiceImpl::class.java).asEagerSingleton()
+        bind(StoreController::class.java).asEagerSingleton()
+        bind(StoreService::class.java).to(StoreServiceImpl::class.java).asEagerSingleton()
         bind(Application::class.java).toInstance(application)
     }
 }
